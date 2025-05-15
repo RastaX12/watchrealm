@@ -1,49 +1,54 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>WatchRealm – Movie Streaming</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WatchRealm</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <header class="main-header">
-    <h1 class="site-logo">Watch<span>Realm</span></h1>
-  </header>
-
-  <nav class="categories" id="categoryList">
-    <ul>
+  <header>
+    <h1>WatchRealm</h1>
+    <input type="text" id="searchInput" placeholder="Search for movies..." />
+    <ul id="categoryList">
       <li data-category="popular" class="active">Popular</li>
-      <li data-category="now_playing">Now Playing</li>
       <li data-category="top_rated">Top Rated</li>
       <li data-category="upcoming">Upcoming</li>
     </ul>
-  </nav>
+  </header>
 
-  <div class="search-container">
-    <input type="text" id="searchInput" placeholder="Search movies..." />
-  </div>
+  <main id="movieContainer"></main>
 
-  <main id="movieContainer" class="movie-container">
-    <!-- Movies will be injected here -->
-  </main>
-
-  <!-- Content locker modal -->
-  <div id="lockerModal" class="modal">
+  <!-- Movie Details Modal -->
+  <div id="movieDetailsModal" class="modal">
     <div class="modal-content">
-      <span id="closeModal" class="close">&times;</span>
-      <h2>Unlock Content</h2>
-      <p>Please complete the action to watch the trailer.</p>
-      <button id="unlockBtn">Unlock</button>
+      <span id="closeDetailsModal" class="close">&times;</span>
+      <h2 id="detailsTitle"></h2>
+      <p id="detailsOverview"></p>
+      <p><strong>Release date:</strong> <span id="detailsReleaseDate"></span></p>
+      <p><strong>Rating:</strong> <span id="detailsRating"></span>/10</p>
+      <button id="watchTrailerBtn">Oglądaj trailer</button>
     </div>
   </div>
 
-  <!-- Player container -->
-  <div id="playerContainer" class="player-container">
-    <span id="closePlayer" class="close-player">&times;</span>
-    <iframe id="moviePlayer" src="" frameborder="0" allowfullscreen></iframe>
+  <!-- Content Locker Modal -->
+  <div id="lockerModal" class="modal">
+    <div class="modal-content">
+      <span id="closeModal" class="close">&times;</span>
+      <p>Odblokuj dostęp do trailera</p>
+      <button id="unlockBtn">Odblokuj</button>
+    </div>
   </div>
 
-  <script src="app.js"></script>
+  <!-- Player Modal -->
+  <div id="playerContainer" class="modal">
+    <div class="modal-content">
+      <span id="closePlayer" class="close">&times;</span>
+      <iframe id="moviePlayer" width="100%" height="400" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
 </body>
 </html>
